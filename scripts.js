@@ -1,187 +1,158 @@
-function updateSize() {
-    var newFontSize = document.querySelector('#size').value + 'px';
-    document.querySelector('.sample ').style.fontSize = newFontSize;
-    document.querySelector('.sample2 ').style.fontSize = newFontSize;
-    document.querySelector('.sample3 ').style.fontSize = newFontSize;
-    document.querySelector('.sample4 ').style.fontSize = newFontSize;
+var RED = "#ff0000ff";
+var GREY = "#666d88ff";
+var BLACK = "black";
+var WHITE = "white";
+var GREEN = "#10e616ff";
+
+
+var color = BLACK;
+var bg_color = WHITE;
+
+var btn_pressed_bg_color = BLACK;
+var btn_pressed_color = WHITE;
+
+var all_hover_img_src = [
+  "img/color_circle_red.png",
+  "img/color_circle_green.png",
+  "img/color_circle_black.png",
+  "img/color_circle_white.png",
+];
+
+var Color = {
+  WHITE: 0,
+  RED: 1,
+  GREEN: 2,
+  BLACK: 3,
+};
+
+var bg_color_index = 0;
+
+var img_button_src = "img/color_circle.png";
+
+$(".img_btn").click(function () {
+  bg_color_index = (bg_color_index + 1) % all_hover_img_src.length;
+
+  color = BLACK;
+  bg_color = WHITE;
+
+  btn_pressed_bg_color = BLACK;
+  btn_pressed_color = WHITE;
+
+  switch (bg_color_index) {
+    case Color.RED:
+      color = WHITE;
+      bg_color = RED;
+
+      btn_pressed_bg_color = WHITE;
+      btn_pressed_color = RED;
+      break;
+    case Color.GREEN:
+        color = GREEN;
+        bg_color = GREY;
+      
+        btn_pressed_bg_color = GREEN;
+        btn_pressed_color = GREY;
+      break;
+    case Color.BLACK:
+        color = BLACK;
+        bg_color = GREY;
+      
+        btn_pressed_bg_color = BLACK;
+        btn_pressed_color = GREY;
+      break;
+  }
+
+  $(".typewriter_wrapper").css("background-color", bg_color);
+
+
+  $("hr").css("color", color);
+
+  $(".btn").css("color", color);
+  $(".btn").css("background-color", bg_color);
+  $(".btn:active").css("color", btn_pressed_color);
+  $(".btn:active").css("background-color", btn_pressed_bg_color);
+  $(".btn:focus").css("color", btn_pressed_color);
+  $(".btn:focus").css("background-color", btn_pressed_bg_color);
+
+  $(".btn:focus").css("background-color", btn_pressed_bg_color);
+
+  $(".slider-range .ui-slider-range").css("background", color);
+  $(".slider").css("background", color);
+
+  $(".textarea").css("color", color);
+});
+
+    $(".btn").click(function(){
+      $(this).css("background-color", "btn_pressed_bg_color");
+    });
+
+      $(".btn").hover(function(){
+        $(this).css("background-color", "btn_pressed_bg_color");
+
+      });
+
+
+
+$(".img_btn").on("mouseover", function () {
+  new_img_src = all_hover_img_src[bg_color_index];
+  $(".img_btn").attr("src", new_img_src);
+});
+
+$(".img_btn").on("mouseout", function () {
+  $(".img_btn").attr("src", img_button_src);
+});
+
+
+
+function setNewText() {
+  var textArray = [
+    "First paragraph text",
+    "Second paragraph text",
+    "Third paragraph with \nline \nbreaks",
+    "Fourth paragraph text",
+    "Fifth paragraph text",
+    "Apollo Amerika Kriwett",
+    "Pantone Two Color Selector",
+    "Josef Müller-Brockmann  Grid Systems",
+    "rollo",
+    "Fluid Concepts and Creative Analogies",
+    "Die Welt in deinen Händen",
+    "PlaybourPark",
+    "Work Hard Play hard",
+    "Speciment",
+    "Rosemarin",
+    "A Stack of Books",
+  ];
+
+  index = Math.floor(Math.random() * textArray.length);
+  text = textArray[index];
+
+  // This checks if the new text is not the same as before.
+  // In other words this avoids setting the same text twice.
+  old_text = $(".textarea").html().replaceAll("<br>", "\n");
+  console.log(old_text);
+  while (text === old_text) {
+    index = Math.floor(Math.random() * textArray.length);
+    text = textArray[index];
+  }
+  $(".textarea").html(text.replaceAll("\n", "<br>"));
 }
 
-updateSize();
-
-function setColor(background, color) {
-    var x = document.querySelectorAll(" .typetesterwrapper, .allbtn, .btn  ");
-    var i;
-    for (i = 0; i < x.length; i++) {
-        x[i].style.backgroundColor = background;
-        x[i].style.color = color;
-    }
-}
-
-function updateLineHeight(newVal) {
-    var newFontSize = newVal + 'px';
-
-    document.querySelector('.sample').style.lineHeight = newFontSize;
-};
-
-function myFunction() {
-    idArray = new Array()
-    idArray[1] = "First paragraph text"
-    idArray[2] = "Second paragraph text"
-    idArray[3] = "Third paragraph text"
-    idArray[4] = "Fourth paragraph text"
-    idArray[5] = "Fifth paragraph text"
-    idArray[6] = "Apollo Amerika Kriwett"
-    idArray[7] = "Pantone Two Color Selector"
-    idArray[8] = "Josef Müller-Brockmann  Grid Systems"
-    idArray[9] = "rollo"
-    idArray[10] = "Fluid Concepts and Creative Analogies"
-    idArray[12] = "Die Welt in deinen Händne"
-    idArray[13] = "PlaybourPark"
-    idArray[14] = "Work Hard Play hard"
-    idArray[15] = "Speciment"
-    idArray[16] = "Rosemarin"
-    idArray[17] = "A Stack of Books"
-    document.getElementById("select").onclick = myFunction;
-
-    randomParagraph = Math.floor(Math.random() * 17);
-
-    document.getElementById("result").innerHTML = idArray[randomParagraph + 1];
-};
-
-function myFunction2() {
-    idArray = new Array()
-    idArray[1] = "First paragraph text"
-    idArray[2] = "Second paragraph text"
-    idArray[3] = "Third paragraph text"
-    idArray[4] = "Fourth paragraph text"
-    idArray[5] = "Fifth paragraph text"
-    idArray[6] = "Apollo Amerika Kriwett"
-    idArray[7] = "Pantone Two Color Selector"
-    idArray[8] = "Josef Müller-Brockmann  Grid Systems"
-    idArray[9] = "rollo"
-    idArray[10] = "Fluid Concepts and Creative Analogies"
-    idArray[12] = "Die Welt in deinen Händne"
-    idArray[13] = "PlaybourPark"
-    idArray[14] = "Work Hard Play hard"
-    idArray[15] = "Speciment"
-    idArray[16] = "Rosemarin"
-    idArray[17] = "A Stack of Books"
-    document.getElementById("select2").onclick = myFunction2;
-
-    randomParagraph = Math.floor(Math.random() * 17);
-
-    document.getElementById("result2").innerHTML = idArray[randomParagraph + 1];
-};
-
-function myFunction3() {
-    idArray = new Array()
-    idArray[1] = "First paragraph text"
-    idArray[2] = "Second paragraph text"
-    idArray[3] = "Third paragraph text"
-    idArray[4] = "Fourth paragraph text"
-    idArray[5] = "Fifth paragraph text"
-    idArray[6] = "Apollo Amerika Kriwett"
-    idArray[7] = "Pantone Two Color Selector"
-    idArray[8] = "Josef Müller-Brockmann  Grid Systems"
-    idArray[9] = "rollo"
-    idArray[10] = "Fluid Concepts and Creative Analogies"
-    idArray[12] = "Die Welt in deinen Händne"
-    idArray[13] = "PlaybourPark"
-    idArray[14] = "Work Hard Play hard"
-    idArray[15] = "Speciment"
-    idArray[16] = "Rosemarin"
-    idArray[17] = "A Stack of Books"
-    document.getElementById("select3").onclick = myFunction3;
-
-    randomParagraph = Math.floor(Math.random() * 17);
-
-    document.getElementById("result3").innerHTML = idArray[randomParagraph + 1];
-};
-
-function myFunction4() {
-    idArray = new Array()
-    idArray[1] = "First paragraph text"
-    idArray[2] = "Second paragraph text"
-    idArray[3] = "Third paragraph text"
-    idArray[4] = "Fourth paragraph text"
-    idArray[5] = "Fifth paragraph text"
-    idArray[6] = "Apollo Amerika Kriwett"
-    idArray[7] = "Pantone Two Color Selector"
-    idArray[8] = "Josef Müller-Brockmann  Grid Systems"
-    idArray[9] = "rollo"
-    idArray[10] = "Fluid Concepts and Creative Analogies"
-    idArray[12] = "Die Welt in deinen Händne"
-    idArray[13] = "PlaybourPark"
-    idArray[14] = "Work Hard Play hard"
-    idArray[15] = "Speciment"
-    idArray[16] = "Rosemarin"
-    idArray[17] = "A Stack of Books"
-    document.getElementById("select4").onclick = myFunction4;
-
-    randomParagraph = Math.floor(Math.random() * 17);
-
-    document.getElementById("result4").innerHTML = idArray[randomParagraph + 1];
-};
-
-function changeAll() {
-    jQuery('input[type="text"]').on('keydown, keyup', function () {
-        //get a reference to the text input value
-        var texInputValue = $('#myInput').val();
-
-        //show the text input value in the UI
-        jQuery('#result').html(texInputValue);
-        jQuery('#result2').html(texInputValue);
-        jQuery('#result3').html(texInputValue);
-        jQuery('#result4').html(texInputValue);
-    });
-};
-
-jQuery(document).ready(function header2() {
-    var stickyTop = $('.header2').offset().top;
-    jQuery(window).scroll(function () {
-        var windowTop = $(window).scrollTop();
-
-        if (stickyTop < windowTop) {
-            jQuery('.header2').css('position', 'fixed');
-        } else {
-            jQuery('.header2').css('position', 'relative');
-        }
-    });
+// Slider function to increase/decrease the font
+$(".slider").on("input", function () {
+  $(".textarea").css("font-size", $(this).val() + "px");
 });
 
-jQuery(function btn() {
-    jQuery('.btn').click(function () {
-        var active = $(this).hasClass('active2');
-        //make all inactive-doesn't work
-        jQuery('.btn').each(function () {
-            if (jQuery(this).hasClass('active2')) {
-                jQuery(this).removeClass('active2')
-            }
-        });
-
-        if (active) {
-            jQuery(this).removeClass('active2')
-        } else {
-            jQuery(this).addClass('active2')
-        }
+$(document).ready(function () {
+    // Set random text after page is loaded.
+    setNewText();
+  
+    // Set source image to the img_btn
+    $(".img_btn").attr("src", img_button_src);
+  
+    // Declare function fo button 'changeTextButton'.
+    $(".changeTextButton").click(function () {
+      setNewText();
+      console.log("OK");
     });
-});
-
-jQuery(function btnall() {
-    jQuery("div.flipClass").on('click mouseover', function () {
-
-        jQuery(this).next(".panelClass").animate({
-            width: 'toggle'
-        });
-    });
-});
-
-jQuery(function style() {
-    jQuery('#options').on('click', 'button', function () {
-        var $iclass = jQuery(this).data('style');
-        var target = jQuery('#target').find('span');
-        $iclass = target.hasClass($iclass) ? "" : $iclass;
-        target.removeClass().addClass("" + $iclass)
-
-    });
-});
+  });
