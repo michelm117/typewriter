@@ -4,12 +4,8 @@ var BLACK = "black";
 var WHITE = "white";
 var GREEN = "#10e616ff";
 
-
 var color = BLACK;
 var bg_color = WHITE;
-
-var btn_pressed_bg_color = BLACK;
-var btn_pressed_color = WHITE;
 
 var all_hover_img_src = [
   "img/color_circle_red.png",
@@ -28,70 +24,76 @@ var Color = {
 var bg_color_index = 0;
 
 var img_button_src = "img/color_circle.png";
-
+// https://css-tricks.com/the-checkbox-hack/
 $(".img_btn").click(function () {
   bg_color_index = (bg_color_index + 1) % all_hover_img_src.length;
 
   color = BLACK;
   bg_color = WHITE;
 
-  btn_pressed_bg_color = BLACK;
-  btn_pressed_color = WHITE;
-
   switch (bg_color_index) {
     case Color.RED:
       color = WHITE;
       bg_color = RED;
-
-      btn_pressed_bg_color = WHITE;
-      btn_pressed_color = RED;
       break;
     case Color.GREEN:
-        color = GREEN;
-        bg_color = GREY;
-      
-        btn_pressed_bg_color = GREEN;
-        btn_pressed_color = GREY;
+      color = GREEN;
+      bg_color = GREY;
       break;
     case Color.BLACK:
-        color = BLACK;
-        bg_color = GREY;
-      
-        btn_pressed_bg_color = BLACK;
-        btn_pressed_color = GREY;
+      color = BLACK;
+      bg_color = GREY;
       break;
   }
 
   $(".typewriter_wrapper").css("background-color", bg_color);
 
-
   $("hr").css("color", color);
 
   $(".btn").css("color", color);
   $(".btn").css("background-color", bg_color);
-  $(".btn:active").css("color", btn_pressed_color);
-  $(".btn:active").css("background-color", btn_pressed_bg_color);
-  $(".btn:focus").css("color", btn_pressed_color);
-  $(".btn:focus").css("background-color", btn_pressed_bg_color);
-
-  $(".btn:focus").css("background-color", btn_pressed_bg_color);
 
   $(".slider-range .ui-slider-range").css("background", color);
   $(".slider").css("background", color);
 
   $(".textarea").css("color", color);
+  $(".textarea").css("background", bg_color);
 });
 
-    $(".btn").click(function(){
-      $(this).css("background-color", "btn_pressed_bg_color");
-    });
+$(".btn").click(function () {
+  switch (bg_color_index) {
+    case Color.RED:
+      console.log("RED");
+      $(this).toggleClass(".btn_active_red");
+      break;
 
-      $(".btn").hover(function(){
-        $(this).css("background-color", "btn_pressed_bg_color");
+    case Color.GREEN:
+      console.log("GREEN");
+      $(this).toggleClass(".btn_active_green");
+      break;
 
-      });
+    case Color.BLACK:
+      console.log("BLACK");
+      $(this).toggleClass(".btn_active_black");
+      break;
+
+    default:
+      console.log("WHITE");
+      $(this).toggleClass(".btn_active_white");
+      break;
+  }
+  $(this).removeClass(".btn");
+});
+
+// TESTING
 
 
+// WORKING BELOW DONT TOUCH
+$('input[name="textfield"]').keyup(function () {
+    var text = $('input[name="textfield"]').val();
+    console.log(text);
+    $(".textarea").html(text.replaceAll("\\n", "<br>"));
+});
 
 $(".img_btn").on("mouseover", function () {
   new_img_src = all_hover_img_src[bg_color_index];
@@ -101,8 +103,6 @@ $(".img_btn").on("mouseover", function () {
 $(".img_btn").on("mouseout", function () {
   $(".img_btn").attr("src", img_button_src);
 });
-
-
 
 function setNewText() {
   var textArray = [
@@ -144,15 +144,34 @@ $(".slider").on("input", function () {
 });
 
 $(document).ready(function () {
-    // Set random text after page is loaded.
-    setNewText();
-  
-    // Set source image to the img_btn
-    $(".img_btn").attr("src", img_button_src);
-  
-    // Declare function fo button 'changeTextButton'.
-    $(".changeTextButton").click(function () {
-      setNewText();
-      console.log("OK");
+  // Set random text after page is loaded.
+  setNewText();
+
+  // Set source image to the img_btn
+  $(".img_btn").attr("src", img_button_src);
+});
+
+/*
+if (!window.x) {
+    x = {};
+}
+
+x.Selector = {};
+x.Selector.getSelected = function() {
+    var t = '';
+    if (window.getSelection) {
+        t = window.getSelection();
+    } else if (document.getSelection) {
+        t = document.getSelection();
+    } else if (document.selection) {
+        t = document.selection.createRange().text;
+    }
+    return t;
+}
+
+$(document).ready(function() {
+    $(document).bind("mouseup", function() {
+        var mytext = x.Selector.getSelected();
+        alert(mytext);
     });
-  });
+});*/

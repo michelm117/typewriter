@@ -113,6 +113,7 @@ hr {
   color: #ffffff;
 }
 
+
 .btn:active {
   background-color: #000000;
   color: #ffffff;
@@ -126,6 +127,46 @@ hr {
   border: none;
   outline: none;
 }
+
+
+/* -- Button active classes -- */
+
+.btn_active_white {
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    outline: none;
+ }
+
+ .btn_active_green {
+    background-color: rgb(136, 102, 102);
+    color: rgb(230, 16, 16);
+    border: none;
+    outline: none;
+ }
+
+ .btn_active_black {
+    background-color: black;
+    color: #666d88ff;
+    border: none;
+    outline: none;
+ }
+
+
+.btn:active, .btn_active_red {
+    background-color: pink;
+    color: #ff0000ff;
+    border: none;
+    outline: none;
+ }
+
+ .btn_active_white {
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    outline: none;
+ }
+
 
 /* ----- Image Button ----- */
 

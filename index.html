@@ -37,23 +37,20 @@
           </div>
           <div class="box">
             <span>
-              <form>
-                <input
-                  class="textfield"
-                  type="text"
-                  id="text_input"
-                  placeholder="Write here......"
-                  autocomplete="off"
-                />
-              </form>
+              <input
+                class="textfield"
+                name="textfield"
+                type="text"
+                id="text_input"
+                placeholder="Write here......"
+                autocomplete="off"
+              />
             </span>
           </div>
           <div class="box">
             <span>
               <button class="btn" type="button">Reset</button>
-              <img class="img_btn" src="img/color_circle.png">
-                <i class="color_icon"></i>
-              </button>
+              <img class="img_btn" src="img/color_circle.png" />
             </span>
           </div>
         </div>
@@ -90,7 +87,7 @@
         <div class="text_config_bar">
           <div class="box">
             <span>
-              <button class="btn" class="changeTextButton" type="button">
+              <button class="changeTextButton btn" type="button" onclick="setNewText()">
                 Change Text
               </button>
             </span>
@@ -110,7 +107,11 @@
           </div>
           <div class="box">
             <span>
-              <button class="btn" type="button">Slide Show</button>
+              <img
+                class="img_btn_next"
+                style="width: 15px; height: 15px"
+                src="img/next.png"
+              />
             </span>
           </div>
         </div>
