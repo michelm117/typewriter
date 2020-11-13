@@ -6,6 +6,8 @@ var GREEN = "#10e616ff";
 
 var color = BLACK;
 var bg_color = WHITE;
+var next_src = "img/next_black.png";
+var img_button_src = "img/color_circle.png";
 
 var all_hover_img_src = [
   "img/color_circle_red.png",
@@ -23,79 +25,111 @@ var Color = {
 
 var bg_color_index = 0;
 
-var img_button_src = "img/color_circle.png";
-// https://css-tricks.com/the-checkbox-hack/
+$('.checkbox_toolbar input[type="checkbox"]').click(function () {
+  var selected = [];
+  $(".checkbox_toolbar input:checked").each(function () {
+    selected.push($(this).attr("name"));
+  });
+  console.log(selected);
+  $(this).css("background", color);
+  $(this).css("color", bg_color);
+});
+
+$(".radio_toolbar label").click(function () {
+  console.log("CLICKED");
+  $(this).css("background", color);
+  $(this).css("color", bg_color);
+});
+
+// TESTING
+
+// WORKING BELOW: DONT TOUCH
+
+/*
+  Change background-color and color if img_circle is clicked
+*/
 $(".img_btn").click(function () {
+  // Set the next hover image
+  var next_hover_img_index = (bg_color_index + 1) % all_hover_img_src.length;
+  var next_hover_img = all_hover_img_src[next_hover_img_index];
+  $(".img_btn:hover").attr("src", next_hover_img);
+
   bg_color_index = (bg_color_index + 1) % all_hover_img_src.length;
 
   color = BLACK;
   bg_color = WHITE;
+  next_src = "img/next_black.png";
 
   switch (bg_color_index) {
     case Color.RED:
       color = WHITE;
       bg_color = RED;
+      next_src = "img/next_white.png";
       break;
     case Color.GREEN:
       color = GREEN;
       bg_color = GREY;
+      next_src = "img/next_green.png";
+
       break;
     case Color.BLACK:
       color = BLACK;
       bg_color = GREY;
+      next_src = "img/next_black.png";
       break;
   }
 
-  $(".typewriter_wrapper").css("background-color", bg_color);
+  $('.checkbox_toolbar input[type="checkbox"]:checked + label').css(
+    "background-color",
+    color
+  );
+  $('.checkbox_toolbar input[type="checkbox"]:checked + label').css(
+    "color",
+    bg_color
+  );
 
-  $("hr").css("color", color);
+  $('.radio_toolbar input[type="radio"]:checked + label').css(
+    "background-color",
+    color
+  );
+  $('.radio_toolbar input[type="radio"]:checked + label').css(
+    "color",
+    bg_color
+  );
+
+  $(".typewriter_wrapper").css("background-color", bg_color);
+  $("hr").css("border-top", "1px solid " + color);
 
   $(".btn").css("color", color);
   $(".btn").css("background-color", bg_color);
 
-  $(".slider-range .ui-slider-range").css("background", color);
   $(".slider").css("background", color);
+  $(
+    "<style type='text/css'>.slider::-webkit-slider-thumb{background:" +
+      color +
+      "}</style>"
+  ).appendTo($("head"));
 
+  $(".textfield").css("color", color);
+  $(
+    "<style type='text/css'>.textfield::placeholder{color:" +
+      color +
+      "}</style>"
+  ).appendTo($("head"));
   $(".textarea").css("color", color);
   $(".textarea").css("background", bg_color);
+  $(".img_btn_next").attr("src", next_src);
+  console.log($(".img_btn_next").attr("src"));
 });
 
-$(".btn").click(function () {
-  switch (bg_color_index) {
-    case Color.RED:
-      console.log("RED");
-      $(this).toggleClass(".btn_active_red");
-      break;
-
-    case Color.GREEN:
-      console.log("GREEN");
-      $(this).toggleClass(".btn_active_green");
-      break;
-
-    case Color.BLACK:
-      console.log("BLACK");
-      $(this).toggleClass(".btn_active_black");
-      break;
-
-    default:
-      console.log("WHITE");
-      $(this).toggleClass(".btn_active_white");
-      break;
-  }
-  $(this).removeClass(".btn");
-});
-
-// TESTING
-
-
-// WORKING BELOW DONT TOUCH
 $('input[name="textfield"]').keyup(function () {
-    var text = $('input[name="textfield"]').val();
-    console.log(text);
-    $(".textarea").html(text.replaceAll("\\n", "<br>"));
+  var text = $('input[name="textfield"]').val();
+  console.log(text);
+  $(".textarea").html(text.replaceAll("\\n", "<br>"));
 });
 
 $(".img_btn").on("mouseover", function () {
+  // Show new color on hover
   new_img_src = all_hover_img_src[bg_color_index];
   $(".img_btn").attr("src", new_img_src);
 });

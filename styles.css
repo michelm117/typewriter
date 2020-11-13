@@ -25,6 +25,7 @@ body {
   flex-grow: 1;
   display: flex;
   align-items: center;
+  height: 25px;
 }
 
 .font-weight_bar {
@@ -75,7 +76,7 @@ body {
   padding: 5px;
   font-size: 16px;
   border-width: 0px;
-  background-color: rgba(0,0,0,0);
+  background-color: rgba(0, 0, 0, 0);
   color: #000000;
   border-style: hidden;
 }
@@ -91,10 +92,56 @@ hr {
   margin: 1px;
 }
 
+/* ----- Checkbox Button ----- */
+
+.checkbox_toolbar input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox_toolbar label {
+  display: inline-block;
+  background: none;
+  font-size: 16px;
+  border-radius: 28px;
+
+  cursor: pointer;
+
+  margin: 0 10px;
+  padding: 0 10px;
+}
+
+.checkbox_toolbar input[type="checkbox"]:checked + label {
+  color: white;
+  background-color: black;
+}
+
+/* ----- Radio Button ----- */
+
+.radio_toolbar input[type="radio"] {
+  display: none;
+}
+
+.radio_toolbar label {
+  display: inline-block;
+  background: none;
+  font-size: 16px;
+  border-radius: 28px;
+
+  cursor: pointer;
+
+  margin: 0 10px;
+  padding: 0 10px;
+}
+
+.radio_toolbar input[type="radio"]:checked + label {
+  color: white;
+  background-color: black;
+}
+
 /* ----- Button ----- */
 
+
 .btn {
-  background-color: #ffffff;
   outline: none;
   border-radius: 28px;
   border: none;
@@ -113,7 +160,6 @@ hr {
   color: #ffffff;
 }
 
-
 .btn:active {
   background-color: #000000;
   color: #ffffff;
@@ -128,45 +174,43 @@ hr {
   outline: none;
 }
 
-
 /* -- Button active classes -- */
 
 .btn_active_white {
-    background-color: #000000;
-    color: #ffffff;
-    border: none;
-    outline: none;
- }
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  outline: none;
+}
 
- .btn_active_green {
-    background-color: rgb(136, 102, 102);
-    color: rgb(230, 16, 16);
-    border: none;
-    outline: none;
- }
+.btn_active_green {
+  background-color: rgb(136, 102, 102);
+  color: rgb(230, 16, 16);
+  border: none;
+  outline: none;
+}
 
- .btn_active_black {
-    background-color: black;
-    color: #666d88ff;
-    border: none;
-    outline: none;
- }
+.btn_active_black {
+  background-color: black;
+  color: #666d88ff;
+  border: none;
+  outline: none;
+}
 
+.btn:active,
+.btn_active_red {
+  background-color: pink;
+  color: #ff0000ff;
+  border: none;
+  outline: none;
+}
 
-.btn:active, .btn_active_red {
-    background-color: pink;
-    color: #ff0000ff;
-    border: none;
-    outline: none;
- }
-
- .btn_active_white {
-    background-color: #000000;
-    color: #ffffff;
-    border: none;
-    outline: none;
- }
-
+.btn_active_white {
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  outline: none;
+}
 
 /* ----- Image Button ----- */
 
@@ -183,6 +227,15 @@ hr {
   -webkit-appearance: none;
   background: black;
   outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: black;
+  cursor: pointer;
 }
 
 .slider::-webkit-slider-thumb {
@@ -224,7 +277,7 @@ hr {
   border: none;
   border-style: hidden;
   border-width: 0px;
-  background-color: rgba(0,0,0,0);
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .textarea:focus {
