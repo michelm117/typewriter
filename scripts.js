@@ -25,25 +25,31 @@ var Color = {
 
 var bg_color_index = 0;
 
-$('.checkbox_toolbar input[type="checkbox"]').click(function () {
-  var selected = [];
-  $(".checkbox_toolbar input:checked").each(function () {
-    selected.push($(this).attr("name"));
-  });
-  console.log(selected);
-  $(this).css("background", color);
-  $(this).css("color", bg_color);
+$(".btn").hover(function () {
+
+  switch (bg_color_index) {
+    case Color.WHITE:
+      $(this).toggleClass("btn_active_white");
+      break;
+
+    case Color.RED:
+      $(this).toggleClass("btn_active_red");
+      break;
+
+    case Color.GREEN:
+      $(this).toggleClass("btn_active_green");
+      break;
+
+    case Color.BLACK:
+      $(this).toggleClass("btn_active_black");
+      break;
+  }
 });
-
-$(".radio_toolbar label").click(function () {
-  console.log("CLICKED");
-  $(this).css("background", color);
-  $(this).css("color", bg_color);
-});
-
-// TESTING
-
-// WORKING BELOW: DONT TOUCH
+/**********************************
+ *                                *
+ *     Code below is working      *
+ *                                *
+ *********************************/
 
 /*
   Change background-color and color if img_circle is clicked
@@ -66,12 +72,13 @@ $(".img_btn").click(function () {
       bg_color = RED;
       next_src = "img/next_white.png";
       break;
+
     case Color.GREEN:
       color = GREEN;
       bg_color = GREY;
       next_src = "img/next_green.png";
-
       break;
+
     case Color.BLACK:
       color = BLACK;
       bg_color = GREY;
@@ -79,30 +86,39 @@ $(".img_btn").click(function () {
       break;
   }
 
-  $('.checkbox_toolbar input[type="checkbox"]:checked + label').css(
-    "background-color",
-    color
-  );
-  $('.checkbox_toolbar input[type="checkbox"]:checked + label').css(
-    "color",
-    bg_color
-  );
-
-  $('.radio_toolbar input[type="radio"]:checked + label').css(
-    "background-color",
-    color
-  );
-  $('.radio_toolbar input[type="radio"]:checked + label').css(
-    "color",
-    bg_color
-  );
-
+  // Set background color and line color.
   $(".typewriter_wrapper").css("background-color", bg_color);
   $("hr").css("border-top", "1px solid " + color);
 
+  // For all checkboxes set label colors.
+  $('.checkbox_toolbar input[type="checkbox"]').each(function () {
+    var label = $("label[for=" + this.id + "]");
+    if ($(this).is(":checked")) {
+      label.css("color", bg_color);
+      label.css("background-color", color);
+    } else {
+      label.css("color", color);
+      label.css("background-color", bg_color);
+    }
+  });
+
+  // For all radioButtons set label colors.
+  $('.radio_toolbar input[type="radio"]').each(function () {
+    var label = $("label[for=" + this.id + "]");
+    if ($(this).is(":checked")) {
+      label.css("color", bg_color);
+      label.css("background-color", color);
+    } else {
+      label.css("color", color);
+      label.css("background-color", bg_color);
+    }
+  });
+
+  // Set button color.
   $(".btn").css("color", color);
   $(".btn").css("background-color", bg_color);
 
+  // Set slider color.
   $(".slider").css("background", color);
   $(
     "<style type='text/css'>.slider::-webkit-slider-thumb{background:" +
@@ -110,34 +126,102 @@ $(".img_btn").click(function () {
       "}</style>"
   ).appendTo($("head"));
 
+  // Set textfield color.
   $(".textfield").css("color", color);
   $(
     "<style type='text/css'>.textfield::placeholder{color:" +
       color +
       "}</style>"
   ).appendTo($("head"));
+
+  // Set textarea color.
   $(".textarea").css("color", color);
   $(".textarea").css("background", bg_color);
+
+  // Set the color circle hover image.
   $(".img_btn_next").attr("src", next_src);
-  console.log($(".img_btn_next").attr("src"));
 });
 
+// Checkbox clicked.
+$('.checkbox_toolbar input[type="checkbox"]').click(function () {
+  checkBox_is_checked = $(this).is(":checked");
+  if (checkBox_is_checked) {
+    $("label[for=" + this.id + "]").css("color", bg_color);
+    $("label[for=" + this.id + "]").css("background", color);
+  } else {
+    $("label[for=" + this.id + "]").css("color", color);
+    $("label[for=" + this.id + "]").css("background", bg_color);
+  }
+});
+
+// Radio clicked.
+$('.radio_toolbar input[type="radio"]').click(function () {
+  var clicked_id = this.id;
+  console.log(clicked_id);
+
+  // For all radioButtons set label colors.
+  $('.radio_toolbar input[type="radio"]').each(function () {
+    radio_is_checked = $(this).is(":checked");
+    var label = $("label[for=" + this.id + "]");
+
+    console.log(this.id + ": " + radio_is_checked);
+    if (this.id === clicked_id) {
+      label.css("color", bg_color);
+      label.css("background-color", color);
+    }
+    if (!radio_is_checked) {
+      label.css("color", color);
+      label.css("background-color", bg_color);
+    }
+  });
+
+  /*
+  radio_is_checked = $(this).is(":checked");
+  if (radio_is_checked) {
+    $("label[for=" + this.id + "]").css("color", bg_color);
+    $("label[for=" + this.id + "]").css("background", color);
+  } else {
+    $("label[for=" + this.id + "]").css("color", color);
+    $("label[for=" + this.id + "]").css("background", bg_color);
+  }
+  */
+});
+
+/*
+$(".radio_toolbar label").click(function () {
+  // For all radioButtons set label colors.
+  $('.radio_toolbar input[type="radio"]').each(function () {
+    radio_is_checked = $(this).is(":checked");
+    console.log(this.id + ": " + radio_is_checked);
+    var label = $("label[for=" + this.id + "]");
+    label.css("color", color);
+    label.css("background-color", bg_color);
+  });
+
+  $(this).css("background", color);
+  $(this).css("color", bg_color);
+});
+*/
+
+// Write text to the textarea.
 $('input[name="textfield"]').keyup(function () {
   var text = $('input[name="textfield"]').val();
-  console.log(text);
   $(".textarea").html(text.replaceAll("\\n", "<br>"));
 });
 
+// Show the upcoming color on mouse hover over color circle.
 $(".img_btn").on("mouseover", function () {
   // Show new color on hover
   new_img_src = all_hover_img_src[bg_color_index];
   $(".img_btn").attr("src", new_img_src);
 });
 
+// Set the normal circle image when hovered out.
 $(".img_btn").on("mouseout", function () {
   $(".img_btn").attr("src", img_button_src);
 });
 
+// Set a random predefined text into the textarea.
 function setNewText() {
   var textArray = [
     "First paragraph text",
@@ -164,7 +248,6 @@ function setNewText() {
   // This checks if the new text is not the same as before.
   // In other words this avoids setting the same text twice.
   old_text = $(".textarea").html().replaceAll("<br>", "\n");
-  console.log(old_text);
   while (text === old_text) {
     index = Math.floor(Math.random() * textArray.length);
     text = textArray[index];

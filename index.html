@@ -80,6 +80,7 @@
                 id="text_input"
                 placeholder="Write here......"
                 autocomplete="off"
+                spellcheck="false"
               />
             </span>
           </div>
@@ -96,16 +97,23 @@
           <div id="button_div">
             <div class="checkbox_toolbar">
               <input type="checkbox" id="checkbox_black" value="false" />
-              <label for="checkbox_black">Black</label>
+              <label class="checkbox_label" for="checkbox_black">Black</label>
 
               <input type="checkbox" id="checkbox_Bold" value="false" />
-              <label for="checkbox_Bold">Bold</label>
+              <label class="checkbox_label" for="checkbox_Bold">Bold</label>
 
               <input type="checkbox" id="checkbox_SemiBold" value="false" />
-              <label for="checkbox_SemiBold">Semi Bold</label>
+              <label class="checkbox_label" for="checkbox_SemiBold"
+                >Semi Bold</label
+              >
 
               <input type="checkbox" id="checkbox_Medium" value="false" />
-              <label for="checkbox_Medium">Medium</label>
+              <label
+                class="checkbox_label"
+                class="checkbox_label"
+                for="checkbox_Medium"
+                >Medium</label
+              >
 
               <input
                 type="checkbox"
@@ -113,22 +121,28 @@
                 value="false"
                 checked
               />
-              <label for="checkbox_Regular">Regular</label>
+              <label class="checkbox_label" for="checkbox_Regular"
+                >Regular</label
+              >
 
               <input type="checkbox" id="checkbox_Normal" value="false" />
-              <label for="checkbox_Normal">Normal</label>
+              <label class="checkbox_label" for="checkbox_Normal">Normal</label>
 
               <input type="checkbox" id="checkbox_Light" value="false" />
-              <label for="checkbox_Light">Light</label>
+              <label class="checkbox_label" for="checkbox_Light">Light</label>
 
               <input type="checkbox" id="checkbox_Extra_Light" value="false" />
-              <label for="checkbox_Extra_Light">Extra_Light</label>
+              <label class="checkbox_label" for="checkbox_Extra_Light"
+                >Extra_Light</label
+              >
 
               <input type="checkbox" id="checkbox_Thin" value="false" />
-              <label for="checkbox_Thin">Thin</label>
+              <label class="checkbox_label" for="checkbox_Thin">Thin</label>
 
               <input type="checkbox" id="checkbox_Hair_Line" value="false" />
-              <label for="checkbox_Hair_Line">Hair_Line</label>
+              <label class="checkbox_label" for="checkbox_Hair_Line"
+                >Hair_Line</label
+              >
 
               <!--
               <button class="btn" type="button">Black</button>
@@ -156,7 +170,7 @@
                 name="ss_radios"
                 value="true"
               />
-              <label for="radio_sso1">SS01</label>
+              <label class="ss_label" for="radio_sso1">SS01</label>
 
               <input
                 type="radio"
@@ -164,7 +178,7 @@
                 name="ss_radios"
                 value="false"
               />
-              <label for="radio_sso2">SS02</label>
+              <label class="ss_label" for="radio_sso2">SS02</label>
 
               <input
                 type="radio"
@@ -172,7 +186,7 @@
                 name="ss_radios"
                 value="false"
               />
-              <label for="radio_sso3">SS03</label>
+              <label class="ss_label" for="radio_sso3">SS03</label>
 
               <input
                 type="radio"
@@ -180,7 +194,7 @@
                 name="ss_radios"
                 value="false"
               />
-              <label for="radio_sso4">SS04</label>
+              <label class="ss_label" for="radio_sso4">SS04</label>
 
               <input
                 type="radio"
@@ -188,7 +202,7 @@
                 name="ss_radios"
                 value="false"
               />
-              <label for="radio_sso5">SS05</label>
+              <label class="ss_label" for="radio_sso5">SS05</label>
 
               <input
                 type="radio"
@@ -196,7 +210,7 @@
                 name="ss_radios"
                 value="false"
               />
-              <label for="radio_sso6">SS06</label>
+              <label class="ss_label" for="radio_sso6">SS06</label>
             </div>
             <!--
             <button class="btn" type="button">SS01</button>
@@ -248,7 +262,12 @@
       </div>
 
       <div class="textarea_wrapper">
-        <div class="textarea" contenteditable="true"></div>
+        <div
+          class="textarea"
+          autocomplete="off"
+          contenteditable="false"
+          spellcheck="false"
+        ></div>
       </div>
     </div>
 
