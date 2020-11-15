@@ -7,7 +7,9 @@ var GREEN = "#10e616ff";
 var color = BLACK;
 var bg_color = WHITE;
 var next_src = "img/next_black.png";
+var stop_src = "img/stop_white.png";
 var img_button_src = "img/color_circle.png";
+var is_changing_text_automatically = false;
 
 var all_hover_img_src = [
   "img/color_circle_red.png",
@@ -26,7 +28,6 @@ var Color = {
 var bg_color_index = 0;
 
 $(".btn").hover(function () {
-
   switch (bg_color_index) {
     case Color.WHITE:
       $(this).toggleClass("btn_active_white");
@@ -62,29 +63,39 @@ $(".img_btn").click(function () {
 
   bg_color_index = (bg_color_index + 1) % all_hover_img_src.length;
 
-  color = BLACK;
-  bg_color = WHITE;
-  next_src = "img/next_black.png";
-
   switch (bg_color_index) {
     case Color.RED:
       color = WHITE;
       bg_color = RED;
       next_src = "img/next_white.png";
+      stop_src = "img/stop_red.png";
       break;
 
     case Color.GREEN:
       color = GREEN;
       bg_color = GREY;
       next_src = "img/next_green.png";
+      stop_src = "img/stop_green.png";
       break;
 
     case Color.BLACK:
       color = BLACK;
       bg_color = GREY;
       next_src = "img/next_black.png";
+      stop_src = "img/stop_black.png";
+      break;
+
+    case Color.WHITE:
+      color = BLACK;
+      bg_color = WHITE;
+      next_src = "img/next_black.png";
+      stop_src = "img/stop_white.png";
       break;
   }
+
+  // Set button color.
+  $(".btn").css("color", color);
+  $(".btn").css("background-color", bg_color);
 
   // Set background color and line color.
   $(".typewriter_wrapper").css("background-color", bg_color);
@@ -114,10 +125,6 @@ $(".img_btn").click(function () {
     }
   });
 
-  // Set button color.
-  $(".btn").css("color", color);
-  $(".btn").css("background-color", bg_color);
-
   // Set slider color.
   $(".slider").css("background", color);
   $(
@@ -138,8 +145,12 @@ $(".img_btn").click(function () {
   $(".textarea").css("color", color);
   $(".textarea").css("background", bg_color);
 
-  // Set the color circle hover image.
-  $(".img_btn_next").attr("src", next_src);
+  // Set the next image.
+  if (is_changing_text_automatically) {
+    $(".img_btn_next").attr("src", stop_src);
+  } else {
+    $(".img_btn_next").attr("src", next_src);
+  }
 });
 
 // Checkbox clicked.
@@ -174,38 +185,11 @@ $('.radio_toolbar input[type="radio"]').click(function () {
       label.css("background-color", bg_color);
     }
   });
-
-  /*
-  radio_is_checked = $(this).is(":checked");
-  if (radio_is_checked) {
-    $("label[for=" + this.id + "]").css("color", bg_color);
-    $("label[for=" + this.id + "]").css("background", color);
-  } else {
-    $("label[for=" + this.id + "]").css("color", color);
-    $("label[for=" + this.id + "]").css("background", bg_color);
-  }
-  */
 });
-
-/*
-$(".radio_toolbar label").click(function () {
-  // For all radioButtons set label colors.
-  $('.radio_toolbar input[type="radio"]').each(function () {
-    radio_is_checked = $(this).is(":checked");
-    console.log(this.id + ": " + radio_is_checked);
-    var label = $("label[for=" + this.id + "]");
-    label.css("color", color);
-    label.css("background-color", bg_color);
-  });
-
-  $(this).css("background", color);
-  $(this).css("color", bg_color);
-});
-*/
 
 // Write text to the textarea.
-$('input[name="textfield"]').keyup(function () {
-  var text = $('input[name="textfield"]').val();
+$(".textfield").on("keyup change", function () {
+  var text = $(this).val();
   $(".textarea").html(text.replaceAll("\\n", "<br>"));
 });
 
@@ -219,6 +203,25 @@ $(".img_btn").on("mouseover", function () {
 // Set the normal circle image when hovered out.
 $(".img_btn").on("mouseout", function () {
   $(".img_btn").attr("src", img_button_src);
+});
+
+// Set stop image when next btn is clicked
+var inst;
+$(".img_btn_next").click(function () {
+  var img_src = stop_src;
+
+  if (!is_changing_text_automatically) {
+    setNewText();
+    // change every 1.5 seconds the text.
+    inst = setInterval(setNewText, 1500);
+    // sets the curser at the end of the line.
+    $('.textarea').val($('textarea').val() + ' ');
+  } else {
+    img_src = next_src;
+    clearInterval(inst);
+  }
+  $(".img_btn_next").attr("src", img_src);
+  is_changing_text_automatically = !is_changing_text_automatically;
 });
 
 // Set a random predefined text into the textarea.

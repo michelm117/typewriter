@@ -162,16 +162,14 @@ hr {
   background: none;
   display: inline-block;
   cursor: pointer;
-  color: #000000;
+  color: none;
   font-size: 17px;
   text-decoration: none;
   margin: 0 10px;
   padding: 0 10px;
 }
 
-.btn:focus {
-  outline: 0;
-}
+*:focus {outline-color: yellow !important}
 
 /* -- Button active classes -- */
 
