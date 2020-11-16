@@ -169,7 +169,9 @@ hr {
   padding: 0 10px;
 }
 
-*:focus {outline-color: yellow !important}
+.btn:focus {
+  outline: 0 !important;
+}
 
 /* -- Button active classes -- */
 

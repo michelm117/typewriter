@@ -215,7 +215,7 @@ $(".img_btn_next").click(function () {
     // change every 1.5 seconds the text.
     inst = setInterval(setNewText, 1500);
     // sets the curser at the end of the line.
-    $('.textarea').val($('textarea').val() + ' ');
+    $(".textarea").val($("textarea").val() + " ");
   } else {
     img_src = next_src;
     clearInterval(inst);

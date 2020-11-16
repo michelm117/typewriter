@@ -14,7 +14,7 @@
    id="svg16"
    inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
    sodipodi:docname="stop.svg"
-   inkscape:export-filename="/home/pepe/Projects/Johannes-Webpage/img/stop_black.png"
+   inkscape:export-filename="/home/pepe/Projects/Johannes-Webpage/img/stop_red.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96">
   <defs
@@ -27,7 +27,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="-62.203561"
+     inkscape:cx="-66.489275"
      inkscape:cy="228.06527"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -121,7 +121,7 @@
      id="layer1">
     <path
        sodipodi:type="star"
-       style="fill:#ffffff;fill-opacity:1;stroke-width:0.264583"
+       style="fill:#666d88;fill-opacity:1;stroke-width:0.264583"
        id="path1158"
        sodipodi:sides="3"
        sodipodi:cx="27.83477"
@@ -139,13 +139,13 @@
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
-       style="fill:#000000;fill-opacity:1;stroke-width:0.39921"
+       style="fill:#10e616;fill-opacity:1;stroke-width:0.39921"
        d="M 44.744994,75.757939 V 52.512404 h 2.529825 2.529827 v 23.245535 23.245539 h -2.529827 -2.529825 z"
        id="path1264-3"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
-       style="fill:#000000;fill-opacity:1;stroke-width:0.399211"
+       style="fill:#10e616;fill-opacity:1;stroke-width:0.399211"
        d="M 34.580972,75.757941 V 52.512406 h 2.529825 2.529827 v 23.245535 23.24554 h -2.529827 -2.529825 z"
        id="path1264-3-6"
        inkscape:export-xdpi="96"
