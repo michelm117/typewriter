@@ -88,7 +88,7 @@
 
         <div class="font-weight_bar">
           <div id="button_div">
-            <div class="checkbox_toolbar">
+            <div class="checkbox_toolbar checkbox_font_weight">
               <input type="checkbox" id="checkbox_black" value="false" />
               <label class="checkbox_label" for="checkbox_black">Black</label>
 
@@ -108,6 +108,7 @@
                 >Medium</label
               >
 
+              <!--
               <input
                 type="checkbox"
                 id="checkbox_Regular"
@@ -117,8 +118,14 @@
               <label class="checkbox_label" for="checkbox_Regular"
                 >Regular</label
               >
+              -->
 
-              <input type="checkbox" id="checkbox_Normal" value="false" />
+              <input
+                type="checkbox"
+                id="checkbox_Normal"
+                value="false"
+                checked
+              />
               <label class="checkbox_label" for="checkbox_Normal">Normal</label>
 
               <input type="checkbox" id="checkbox_Light" value="false" />
@@ -126,16 +133,18 @@
 
               <input type="checkbox" id="checkbox_Extra_Light" value="false" />
               <label class="checkbox_label" for="checkbox_Extra_Light"
-                >Extra_Light</label
+                >Extra Light</label
               >
 
               <input type="checkbox" id="checkbox_Thin" value="false" />
               <label class="checkbox_label" for="checkbox_Thin">Thin</label>
 
+              <!--
               <input type="checkbox" id="checkbox_Hair_Line" value="false" />
               <label class="checkbox_label" for="checkbox_Hair_Line"
-                >Hair_Line</label
+                >Hair Line</label
               >
+              -->
             </div>
           </div>
         </div>
@@ -237,9 +246,14 @@
         <div
           class="textarea"
           autocomplete="off"
-          contenteditable="true"
+          contenteditable="false"
           spellcheck="false"
-        ></div>
+          overflow: none
+          >
+          <p class="textearea_paragraph"> 
+            <span class="textarea_span span_checkbox_Normal" style="font-weight: 400;"></span>
+          </p>
+        </div>
       </div>
     </div>
 
@@ -262,5 +276,6 @@
     ></script>
 
     <script type="text/javascript" src="scripts.js"></script>
+    <script type="text/javascript" src="color_scripts.js"></script>
   </body>
 </html>

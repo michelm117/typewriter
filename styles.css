@@ -17,8 +17,8 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding-left: 0.5%;
-  padding-right: 0.5%;
+  padding-left: 1%;
+  padding-right: 1%;
 }
 
 .font_bar {
@@ -235,6 +235,7 @@ hr {
 .textarea_wrapper {
   flex: 1 1 auto;
   position: relative;
+  padding: 0 1% 0 1%;
 }
 
 .textarea {
@@ -266,3 +267,9 @@ hr {
 .textarea:focus {
   outline: none;
 }
+
+.textearea_paragraph {
+  white-space: inherit;
+  word-wrap: break-word;
+}
+
