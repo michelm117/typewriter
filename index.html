@@ -1,281 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Typewriter By Jo</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
 
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
+<head>
+  <title>Typewriter By Jo</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
 
-    <!-- Stylesheet File -->
-    <link rel="stylesheet" href="styles.css" />
-  </head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-  <body>
-    <div class="typewriter_wrapper">
-      <div class="settings_bar">
-        <div class="font_bar">
-          <div class="box">
-            <span>
-              <div class="radio_toolbar">
-                <input
-                  type="radio"
-                  id="radio_soer"
-                  name="font_radios"
-                  value="true"
-                  checked
-                />
-                <label for="radio_soer">Soer</label>
+  <!-- Stylesheet File -->
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="font_styles.css" />
+</head>
 
-                <input
-                  type="radio"
-                  id="radio_progress"
-                  name="font_radios"
-                  value="false"
-                />
-                <label for="radio_progress">Progress</label>
-
-                <input
-                  type="radio"
-                  id="radio_material"
-                  name="font_radios"
-                  value="false"
-                />
-                <label for="radio_material">Material</label>
-
-                <input
-                  type="radio"
-                  id="radio_begato"
-                  name="font_radios"
-                  value="false"
-                />
-                <label for="radio_begato">Begato</label>
-              </div>
-            </span>
-          </div>
-          <div class="box">
-            <span>
-              <input
-                class="textfield"
-                type="text"
-                id="text_input"
-                placeholder="Write here......"
-                autocomplete="off"
-                spellcheck="false"
-              />
-            </span>
-          </div>
-          <div class="box">
-            <span>
-              <button class="btn" type="button">Reset</button>
-              <img class="img_btn" src="img/color_circle.png" />
-            </span>
-          </div>
-        </div>
-        <hr />
-
-        <div class="font-weight_bar">
-          <div id="button_div">
-            <div class="checkbox_toolbar checkbox_font_weight">
-              <input type="checkbox" id="checkbox_black" value="false" />
-              <label class="checkbox_label" for="checkbox_black">Black</label>
-
-              <input type="checkbox" id="checkbox_Bold" value="false" />
-              <label class="checkbox_label" for="checkbox_Bold">Bold</label>
-
-              <input type="checkbox" id="checkbox_SemiBold" value="false" />
-              <label class="checkbox_label" for="checkbox_SemiBold"
-                >Semi Bold</label
-              >
-
-              <input type="checkbox" id="checkbox_Medium" value="false" />
-              <label
-                class="checkbox_label"
-                class="checkbox_label"
-                for="checkbox_Medium"
-                >Medium</label
-              >
-
+<body>
+  <div class="typewriter_wrapper">
+    <div class="settings_bar">
+      <div class="font_bar">
+        <div class="box">
+          <span>
+            <div class="radio_toolbar">
               <!--
-              <input
-                type="checkbox"
-                id="checkbox_Regular"
-                value="false"
-                checked
-              />
-              <label class="checkbox_label" for="checkbox_Regular"
-                >Regular</label
-              >
+              <input type="radio" id="radio_soer" name="font_radios" value="true" checked />
+              <label class="soer_label" for="radio_soer">Soer</label>
               -->
+              <input type="radio" id="radio_material" name="font_radios" value="false" />
+              <label class="material_label" for="radio_material">Material</label>
 
-              <input
-                type="checkbox"
-                id="checkbox_Normal"
-                value="false"
-                checked
-              />
-              <label class="checkbox_label" for="checkbox_Normal">Normal</label>
+              <input type="radio" id="radio_progress" name="font_radios" value="false" />
+              <label class="progress_label" for="radio_progress">Progress</label>
 
-              <input type="checkbox" id="checkbox_Light" value="false" />
-              <label class="checkbox_label" for="checkbox_Light">Light</label>
-
-              <input type="checkbox" id="checkbox_Extra_Light" value="false" />
-              <label class="checkbox_label" for="checkbox_Extra_Light"
-                >Extra Light</label
-              >
-
-              <input type="checkbox" id="checkbox_Thin" value="false" />
-              <label class="checkbox_label" for="checkbox_Thin">Thin</label>
-
-              <!--
-              <input type="checkbox" id="checkbox_Hair_Line" value="false" />
-              <label class="checkbox_label" for="checkbox_Hair_Line"
-                >Hair Line</label
-              >
-              -->
+              <input type="radio" id="radio_begato" name="font_radios" value="false" />
+              <label class="begato_label" for="radio_begato">Begato</label>
             </div>
-          </div>
+          </span>
         </div>
-        <hr />
-
-        <div class="ss_bar">
-          <div id="button_div">
-            <div class="checkbox_toolbar">
-              <input
-                type="checkbox"
-                id="checkbox_sso1"
-                name="ss_checkbox"
-                value="true"
-              />
-              <label class="ss_label" for="checkbox_sso1">SS01</label>
-
-              <input
-                type="checkbox"
-                id="checkbox_sso2"
-                name="ss_checkbox"
-                value="false"
-              />
-              <label class="ss_label" for="checkbox_sso2">SS02</label>
-
-              <input
-                type="checkbox"
-                id="checkbox_sso3"
-                name="ss_checkbox"
-                value="false"
-              />
-              <label class="ss_label" for="checkbox_sso3">SS03</label>
-
-              <input
-                type="checkbox"
-                id="checkbox_sso4"
-                name="ss_checkbox"
-                value="false"
-              />
-              <label class="ss_label" for="checkbox_sso4">SS04</label>
-
-              <input
-                type="checkbox"
-                id="checkbox_sso5"
-                name="ss_checkbox"
-                value="false"
-              />
-              <label class="ss_label" for="checkbox_sso5">SS05</label>
-
-              <input
-                type="checkbox"
-                id="checkbox_sso6"
-                name="ss_checkbox"
-                value="false"
-              />
-              <label class="ss_label" for="checkbox_sso6">SS06</label>
-            </div>
-          </div>
+        <div class="box">
+          <span>
+            <input class="textfield" type="text" id="text_input" placeholder="Write here......" autocomplete="off"
+              spellcheck="false" />
+          </span>
         </div>
-        <hr />
+        <div class="box">
+          <span>
+            <img class="img_btn" src="img/color_circle.png" />
+          </span>
+        </div>
+      </div>
+      <hr />
 
-        <div class="text_config_bar">
-          <div class="box">
-            <span>
-              <button
-                class="changeTextButton btn"
-                type="button"
-                onclick="setNewText()"
-              >
-                Change Text
-              </button>
-            </span>
-          </div>
-          <div class="box">
-            <span>
-              <form>
-                <input
-                  class="slider"
-                  type="range"
-                  placeholder="Write here......"
-                  min="20"
-                  max="120"
-                />
-              </form>
-            </span>
-          </div>
-          <div class="box">
-            <span>
-              <img
-                class="img_btn_next"
-                style="width: 15px; height: 15px"
-                src="img/next_black.png"
-              />
-            </span>
+      <div class="font-weight_bar">
+        <div id="button_div">
+          <div class="checkbox_toolbar checkbox_font_weight">
+            <input type="checkbox" id="checkbox_ExtraBlack" value="false" />
+            <label class="checkbox_label extraBlack" for="checkbox_ExtraBlack">Extra Black</label>
+
+            <input type="checkbox" id="checkbox_Black" value="false" />
+            <label class="checkbox_label black" for="checkbox_Black">Black</label>
+
+            <input type="checkbox" id="checkbox_ExtraBold" value="false" />
+            <label class="checkbox_label extraBold" for="checkbox_ExtraBold">Extra Bold</label>
+
+            <input type="checkbox" id="checkbox_Bold" value="false" />
+            <label class="checkbox_label bold" for="checkbox_Bold">Bold</label>
+
+            <input type="checkbox" id="checkbox_SemiBold" value="false" />
+            <label class="checkbox_label semiBold" for="checkbox_SemiBold">Semi Bold</label>
+
+            <input type="checkbox" id="checkbox_Medium" value="false" />
+            <label class="checkbox_label medium" class="checkbox_label" for="checkbox_Medium">Medium</label>
+
+            <input type="checkbox" id="checkbox_Regular" value="false" />
+            <label class="checkbox_label regular" for="checkbox_Regular">Regular</label>
+
+            <input type="checkbox" id="checkbox_Normal" value="false"/>
+            <label class="checkbox_label normal" for="checkbox_Normal">Normal</label>
+
+            <input type="checkbox" id="checkbox_Light" value="false" />
+            <label class="checkbox_label light" for="checkbox_Light">Light</label>
+
+            <input type="checkbox" id="checkbox_UltraLight" value="false" />
+            <label class="checkbox_label ultraLight" for="checkbox_UltraLight">Ultra Light</label>
+
+            <input type="checkbox" id="checkbox_ExtraLight" value="false" />
+            <label class="checkbox_label extraLight" for="checkbox_ExtraLight">Extra Light</label>
+
+            <input type="checkbox" id="checkbox_Thin" value="false" />
+            <label class="checkbox_label thin" for="checkbox_Thin">Thin</label>
+
+
+            <input type="checkbox" id="checkbox_ExtraThin" value="false" />
+            <label class="checkbox_label extraThin" for="checkbox_ExtraThin">Extra Thin</label>
           </div>
         </div>
       </div>
+      <hr />
 
-      <div class="textarea_wrapper">
-        <div
-          class="textarea"
-          autocomplete="off"
-          contenteditable="false"
-          spellcheck="false"
-          overflow: none
-          >
-          <p class="textearea_paragraph"> 
-            <span class="textarea_span span_checkbox_Normal" style="font-weight: 400;"></span>
-          </p>
+      <div class="ss_bar">
+        <div id="button_div">
+          <div class="checkbox_toolbar">
+            <input type="checkbox" id="checkbox_sso1" name="ss_checkbox" value="true" />
+            <label class="ss_label" for="checkbox_sso1">SS01</label>
+
+            <input type="checkbox" id="checkbox_sso2" name="ss_checkbox" value="false" />
+            <label class="ss_label" for="checkbox_sso2">SS02</label>
+
+            <input type="checkbox" id="checkbox_sso3" name="ss_checkbox" value="false" />
+            <label class="ss_label" for="checkbox_sso3">SS03</label>
+
+            <input type="checkbox" id="checkbox_sso4" name="ss_checkbox" value="false" />
+            <label class="ss_label" for="checkbox_sso4">SS04</label>
+
+            <input type="checkbox" id="checkbox_sso5" name="ss_checkbox" value="false" />
+            <label class="ss_label" for="checkbox_sso5">SS05</label>
+
+            <input type="checkbox" id="checkbox_sso6" name="ss_checkbox" value="false" />
+            <label class="ss_label" for="checkbox_sso6">SS06</label>
+
+            <input type="checkbox" id="checkbox_sso7" name="ss_checkbox" value="false" />
+            <label class="ss_label" for="checkbox_sso7">SS07</label>
+
+            <input type="checkbox" id="checkbox_sso8" name="ss_checkbox" value="false" />
+            <label class="ss_label" for="checkbox_sso8">SS08</label>
+
+            <input type="checkbox" id="checkbox_sso9" name="ss_checkbox" value="false" />
+            <label class="ss_label" for="checkbox_sso9">SS09</label>
+
+            <input type="checkbox" id="checkbox_ss10" name="ss_checkbox" value="false" />
+            <label class="ss_label" for="checkbox_ss10">SS10</label>
+
+            <input type="checkbox" id="checkbox_ss11" name="ss_checkbox" value="false" />
+            <label class="ss_label" for="checkbox_ss11">SS11</label>
+
+            <input type="checkbox" id="checkbox_ss12" name="ss_checkbox" value="false" />
+            <label class="ss_label" for="checkbox_ss12">SS12</label>
+
+            <input type="checkbox" id="checkbox_ss13" name="ss_checkbox" value="false" />
+            <label class="ss_label" for="checkbox_ss13">SS13</label>
+
+            <input type="checkbox" id="checkbox_liga" name="ss_checkbox" value="false" />
+            <label class="ss_label" for="checkbox_liga">LIGA</label>
+
+            <input type="checkbox" id="checkbox_tnum" name="ss_checkbox" value="false" />
+            <label class="ss_label" for="checkbox_tnum">TNUM</label>
+
+            <input type="checkbox" id="checkbox_zero" name="ss_checkbox" value="false" />
+            <label class="ss_label" for="checkbox_zero">ZERO</label>
+          </div>
+        </div>
+      </div>
+      <hr />
+
+      <div class="text_config_bar">
+        <div class="box">
+          <span>
+            <button class="changeTextButton btn" type="button" onclick="setNewText()">
+              Change Text
+            </button>
+          </span>
+        </div>
+        <div class="box">
+          <span>
+            <form>
+              <input class="slider" type="range" placeholder="Write here......" min="20" max="120" />
+            </form>
+          </span>
+        </div>
+        <div class="box">
+          <span>
+            <img class="img_btn_next" style="width: 15px; height: 15px" src="img/next_black.png" />
+          </span>
         </div>
       </div>
     </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
+    <div class="textarea_wrapper">
+      <div class="textarea" autocomplete="off" contenteditable="true" spellcheck="false" overflow: none>
+        <p class="textearea_paragraph">
+        </p>
+      </div>
+    </div>
+  </div>
 
-    <script type="text/javascript" src="scripts.js"></script>
-    <script type="text/javascript" src="color_scripts.js"></script>
-  </body>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+  <script type="text/javascript" src="scripts.js"></script>
+  <script type="text/javascript" src="color-scripts.js"></script>
+  <script type="text/javascript" src="font-scripts.js"></script>
+</body>
+
 </html>

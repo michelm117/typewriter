@@ -6,7 +6,6 @@ var number_of_spans = 1;
 $('.checkbox_font_weight input[type="checkbox"]').click(function () {
   var checkBox_is_checked = $(this).is(":checked");
   var checkbox_id = this.id;
-  console.log(checkbox_id);
 
   if (checkBox_is_checked) {
     number_of_spans++;
@@ -22,8 +21,16 @@ function appendTextWithFontWeight(id) {
 
   var style = "";
   switch (id) {
-    case "checkbox_black":
+    case "checkbox_ExtraBlack":
+      style = "style='font-weight: 950;'";
+      break;
+
+    case "checkbox_Black":
       style = "style='font-weight: 900;'";
+      break;
+
+    case "checkbox_ExtraBold":
+      style = "style='font-weight: 800;'";
       break;
 
     case "checkbox_Bold":
@@ -38,6 +45,10 @@ function appendTextWithFontWeight(id) {
       style = "style='font-weight: 500;'";
       break;
 
+    case "checkbox_Regular":
+      style = "style='font-weight: 450;'";
+      break;
+
     case "checkbox_Normal":
       style = "style='font-weight: 400;'";
       break;
@@ -46,7 +57,11 @@ function appendTextWithFontWeight(id) {
       style = "style='font-weight: 300;'";
       break;
 
-    case "checkbox_Extra_Light":
+    case "checkbox_UltraLight":
+      style = "style='font-weight: 250;'";
+      break;
+
+    case "checkbox_ExtraLight":
       style = "style='font-weight: 200;'";
       break;
 
@@ -54,9 +69,11 @@ function appendTextWithFontWeight(id) {
       style = "style='font-weight: 100;'";
       break;
 
-    default:
+    case "checkbox_ExtraThin":
+      style = "style='font-weight: 50;'";
       break;
   }
+
   var new_text = text;
   if (number_of_spans > 1) {
     new_text = " " + new_text;
@@ -73,32 +90,7 @@ function appendTextWithFontWeight(id) {
   );
 }
 
-// Radio clicked.
-$('.radio_toolbar input[type="radio"]').click(function () {
-  var clicked_id = this.id;
 
-  var textarea = $(".textarea");
-  switch (clicked_id) {
-    case "radio_soer":
-      textarea.css("font-family", "Times New Roman");
-      break;
-
-    case "radio_progress":
-      textarea.css("font-family", "Arial");
-      break;
-    case "radio_material":
-      textarea.css("font-family", "Lucida Console");
-      break;
-
-    case "radio_begato":
-      textarea.css("font-family", "Courier New");
-      break;
-
-    default:
-      break;
-  }
-  console.log(textarea.css("font-family"));
-});
 
 // Write text to the textarea.
 $(".textfield").on("keyup change", function () {
@@ -138,6 +130,11 @@ function setNewText() {
     index = Math.floor(Math.random() * textArray.length);
     text = textArray[index];
   }
+
+  if (number_of_spans > 1) {
+    text = " " + text;
+  }
+
   //$(".textarea").siblings().text("OK");
   $(".textarea > p span").html(text.replaceAll("\n", "<br>"));
 }
@@ -151,28 +148,3 @@ $(document).ready(function () {
   // Set random text after page is loaded.
   setNewText();
 });
-
-/*
-if (!window.x) {
-    x = {};
-}
-
-x.Selector = {};
-x.Selector.getSelected = function() {
-    var t = '';
-    if (window.getSelection) {
-        t = window.getSelection();
-    } else if (document.getSelection) {
-        t = document.getSelection();
-    } else if (document.selection) {
-        t = document.selection.createRange().text;
-    }
-    return t;
-}
-
-$(document).ready(function() {
-    $(document).bind("mouseup", function() {
-        var mytext = x.Selector.getSelected();
-        alert(mytext);
-    });
-});*/
