@@ -230,7 +230,7 @@ $(window).scroll(function (e) {
       position: "fixed",
       top: "0px",
       "z-index": "100",
-      background: "white",
+      background: bg_color,
     });
   }
   if ($(this).scrollTop() < $el.height() && isPositionFixed) {
