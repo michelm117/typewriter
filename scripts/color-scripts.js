@@ -166,7 +166,8 @@ $(".img_btn").click(function () {
   $(".textarea").css("color", color);
   $("body").css("transition", color_transition_time);
   $("body").css("background", bg_color);
-  $("settings_bar").css("background", bg_color);
+  $(".settings_bar").css("transition", color_transition_time);
+  $(".settings_bar").css("background", bg_color);
 
   // Set the next image.
   if (is_changing_text_automatically) {
@@ -313,4 +314,21 @@ $(".radio_toolbar").click(function () {
 
 $(document).ready(function () {
   $(".img_btn").trigger("click");
+});
+
+// Make Settings_Bar sticky.
+$(window).scroll(function (e) {
+  var $el = $(".settings_bar");
+  var isPositionFixed = $el.css("position") == "fixed";
+  if ($(this).scrollTop() > $el.height() && !isPositionFixed) {
+    $el.css({
+      position: "fixed",
+      top: "0px",
+      "z-index": "100",
+      background: bg_color,
+    });
+  }
+  if ($(this).scrollTop() < $el.height() && isPositionFixed) {
+    $el.css({ position: "static", top: "0px", background: "rgba(0, 0, 0, 0)" });
+  }
 });

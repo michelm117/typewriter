@@ -221,22 +221,6 @@ $(".slider").on("input", function () {
 });
 
 
-// Make Settings_Bar sticky.
-$(window).scroll(function (e) {
-  var $el = $(".settings_bar");
-  var isPositionFixed = $el.css("position") == "fixed";
-  if ($(this).scrollTop() > $el.height() && !isPositionFixed) {
-    $el.css({
-      position: "fixed",
-      top: "0px",
-      "z-index": "100",
-      background: bg_color,
-    });
-  }
-  if ($(this).scrollTop() < $el.height() && isPositionFixed) {
-    $el.css({ position: "static", top: "0px" });
-  }
-});
 
 $(document).ready(function () {
   // Set random text after page is loaded.
