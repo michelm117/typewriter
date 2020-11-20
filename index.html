@@ -14,8 +14,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
   <!-- Stylesheet File -->
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="font_styles.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/font_styles.css" />
 </head>
 
 <body>
@@ -29,8 +29,8 @@
               <input type="radio" id="radio_soer" name="font_radios" value="true" checked />
               <label class="soer_label" for="radio_soer">Soer</label>
               -->
-              <input type="radio" id="radio_material" name="font_radios" value="false" />
-              <label class="material_label" for="radio_material">Material</label>
+              <input type="radio" id="radio_material" name="font_radios" value="false" checked />
+              <label class="material_label" for="radio_material" >Material</label>
 
               <input type="radio" id="radio_progress" name="font_radios" value="false" />
               <label class="progress_label" for="radio_progress">Progress</label>
@@ -75,8 +75,8 @@
             <input type="checkbox" id="checkbox_Medium" value="false" />
             <label class="checkbox_label medium" class="checkbox_label" for="checkbox_Medium">Medium</label>
 
-            <input type="checkbox" id="checkbox_Regular" value="false" />
-            <label class="checkbox_label regular" for="checkbox_Regular">Regular</label>
+            <input type="checkbox" id="checkbox_Regular" value="false"/>
+            <label class="checkbox_label regular" for="checkbox_Regular" style="color: white; background-color: black;;">Regular</label>
 
             <input type="checkbox" id="checkbox_Normal" value="false"/>
             <label class="checkbox_label normal" for="checkbox_Normal">Normal</label>
@@ -132,13 +132,13 @@
             <label class="ss_label" for="checkbox_sso9">SS09</label>
 
             <input type="checkbox" id="checkbox_ss10" name="ss_checkbox" value="false" />
-            <label class="ss_label" for="checkbox_ss10">SS10</label>
+            <label class="ss_label" for="checkbox_ss10" style="display: none;">SS10</label>
 
             <input type="checkbox" id="checkbox_ss11" name="ss_checkbox" value="false" />
             <label class="ss_label" for="checkbox_ss11">SS11</label>
 
             <input type="checkbox" id="checkbox_ss12" name="ss_checkbox" value="false" />
-            <label class="ss_label" for="checkbox_ss12">SS12</label>
+            <label class="ss_label" for="checkbox_ss12" style="display: none;">SS12</label>
 
             <input type="checkbox" id="checkbox_ss13" name="ss_checkbox" value="false" />
             <label class="ss_label" for="checkbox_ss13">SS13</label>
@@ -147,10 +147,10 @@
             <label class="ss_label" for="checkbox_liga">LIGA</label>
 
             <input type="checkbox" id="checkbox_tnum" name="ss_checkbox" value="false" />
-            <label class="ss_label" for="checkbox_tnum">TNUM</label>
+            <label class="ss_label" for="checkbox_tnum" style="display: none;">TNUM</label>
 
             <input type="checkbox" id="checkbox_zero" name="ss_checkbox" value="false" />
-            <label class="ss_label" for="checkbox_zero">ZERO</label>
+            <label class="ss_label" for="checkbox_zero" style="display: none;">ZERO</label>
           </div>
         </div>
       </div>
@@ -181,7 +181,7 @@
 
     <div class="textarea_wrapper">
       <div class="textarea" autocomplete="off" contenteditable="true" spellcheck="false" overflow: none>
-        <p class="textearea_paragraph">
+        <p class="textearea_paragraph" >
         </p>
       </div>
     </div>
@@ -203,9 +203,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
 
-  <script type="text/javascript" src="scripts.js"></script>
-  <script type="text/javascript" src="color-scripts.js"></script>
-  <script type="text/javascript" src="font-scripts.js"></script>
+  <script type="text/javascript" src="scripts/scripts.js"></script>
+  <script type="text/javascript" src="scripts/color-scripts.js"></script>
+  <script type="text/javascript" src="scripts/font-scripts.js"></script>
 </body>
 
 </html>
