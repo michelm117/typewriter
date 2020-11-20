@@ -329,6 +329,6 @@ $(window).scroll(function (e) {
     });
   }
   if ($(this).scrollTop() < $el.height() && isPositionFixed) {
-    $el.css({ position: "static", top: "0px", background: "rgba(0, 0, 0, 0)" });
+    $el.css({ position: "static", top: "0px", background: bg_color });
   }
 });
