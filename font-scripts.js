@@ -26,6 +26,17 @@ function showCheckbox(checkbox) {
 // MATERIAL FONT CLICKED
 
 $(".material_label").click(function () {
+  var checkboxesToHide = [
+    "#checkbox_ss10",
+    "#checkbox_ss12",
+    "#checkbox_tnum",
+    "#checkbox_zero",
+  ];
+
+  $.each(checkboxesToHide, function (index, value) {
+    hideCheckbox(value);
+  });
+
   var checkboxesToShow = [
     "#checkbox_ExtraBlack",
     "#checkbox_Black",
@@ -40,6 +51,19 @@ $(".material_label").click(function () {
     "#checkbox_ExtraLight",
     "#checkbox_Thin",
     "#checkbox_ExtraThin",
+
+    "#checkbox_sso1",
+    "#checkbox_sso2",
+    "#checkbox_sso3",
+    "#checkbox_sso4",
+    "#checkbox_sso5",
+    "#checkbox_sso6",
+    "#checkbox_sso7",
+    "#checkbox_sso8",
+    "#checkbox_sso9",
+    "#checkbox_ss11",
+    "#checkbox_ss13",
+    "#checkbox_liga",
   ];
 
   $.each(checkboxesToShow, function (index, value) {
@@ -52,7 +76,15 @@ $(".material_label").click(function () {
 // PROGRESS FONT CLICKED
 
 $(".progress_label").click(function () {
-  var checkboxesToHide = ["#checkbox_ExtraBold", "#checkbox_ExtraBlack"];
+  var checkboxesToHide = [
+    "#checkbox_ExtraBold",
+    "#checkbox_ExtraBlack",
+    "#checkbox_sso3",
+    "#checkbox_sso7",
+    "#checkbox_sso8",
+    "#checkbox_ss13",
+    "#checkbox_liga",
+  ];
 
   $.each(checkboxesToHide, function (index, value) {
     hideCheckbox(value);
@@ -70,6 +102,18 @@ $(".progress_label").click(function () {
     "#checkbox_ExtraLight",
     "#checkbox_Thin",
     "#checkbox_ExtraThin",
+
+    "#checkbox_sso1",
+    "#checkbox_sso2",
+    "#checkbox_sso4",
+    "#checkbox_sso5",
+    "#checkbox_sso6",
+    "#checkbox_sso9",
+    "#checkbox_ss10",
+    "#checkbox_ss11",
+    "#checkbox_ss12",
+    "#checkbox_tnum",
+    "#checkbox_zero",
   ];
 
   $.each(checkboxesToShow, function (index, value) {
@@ -83,10 +127,21 @@ $(".progress_label").click(function () {
 
 $(".begato_label").click(function () {
   var checkboxesToHide = [
-    $("#checkbox_Normal"),
-    $("#checkbox_Black"),
-    $("#checkbox_ExtraBlack"),
-    $("#checkbox_UltraLight"),
+    "#checkbox_Normal",
+    "#checkbox_Black",
+    "#checkbox_ExtraBlack",
+    "#checkbox_UltraLight",
+
+    "#checkbox_sso6",
+    "#checkbox_sso7",
+    "#checkbox_sso8",
+    "#checkbox_sso9",
+    "#checkbox_ss10",
+    "#checkbox_ss11",
+    "#checkbox_ss12",
+    "#checkbox_ss13",
+    "#checkbox_tnum",
+    "#checkbox_liga",
   ];
   $.each(checkboxesToHide, function (index, value) {
     hideCheckbox(value);
@@ -102,6 +157,13 @@ $(".begato_label").click(function () {
     "#checkbox_ExtraLight",
     "#checkbox_Thin",
     "#checkbox_ExtraThin",
+
+    "#checkbox_sso1",
+    "#checkbox_sso2",
+    "#checkbox_sso3",
+    "#checkbox_sso4",
+    "#checkbox_sso5",
+    "#checkbox_zero",
   ];
   $.each(checkToShow, function (index, value) {
     showCheckbox(value);
@@ -109,8 +171,6 @@ $(".begato_label").click(function () {
 
   //$("#checkbox_Regular").prop("checked", true);
 });
-
-
 
 // Radio clicked.
 $('.radio_toolbar input[type="radio"]').click(function () {
@@ -121,6 +181,7 @@ $('.radio_toolbar input[type="radio"]').click(function () {
     case "radio_progress":
       textarea.css("font-family", "Progress");
       break;
+      c;
     case "radio_material":
       textarea.css("font-family", "Material");
       break;
