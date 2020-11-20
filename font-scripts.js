@@ -116,7 +116,7 @@ $(".begato_label").click(function () {
 $('.radio_toolbar input[type="radio"]').click(function () {
   var clicked_id = this.id;
 
-  var textarea = $(".textarea");
+  var textarea = $(".textarea > p");
   switch (clicked_id) {
     case "radio_progress":
       textarea.css("font-family", "Progress");
