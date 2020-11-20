@@ -1,7 +1,8 @@
 /**
  * Handles Color change.
  */
-var transition_time = ".5s";
+var color_transition_time = ".5s";
+var font_transition_time = ".3s";
 
 var RED = "#ff0000ff";
 var GREY = "#666d88ff";
@@ -99,19 +100,19 @@ $(".img_btn").click(function () {
   }
 
   // Set button color.
-  $(".btn").css("transition", transition_time);
+  $(".btn").css("transition", color_transition_time);
   $(".btn").css("color", color);
   $(".btn").css("background-color", bg_color);
 
   // Set background color and line color.
   //$(".typewriter_wrapper").css("background-color", bg_color);
-  $("hr").css("transition", transition_time);
+  $("hr").css("transition", color_transition_time);
   $("hr").css("border-top", "1px solid " + color);
 
   // For all checkboxes set label colors.
   $('.checkbox_toolbar input[type="checkbox"]').each(function () {
     var label = $("label[for=" + this.id + "]");
-    label.css("transition", transition_time);
+    label.css("transition", color_transition_time);
     if ($(this).is(":checked")) {
       label.css("color", bg_color);
       label.css("background-color", color);
@@ -127,7 +128,7 @@ $(".img_btn").click(function () {
   // For all radioButtons set label colors.
   $('.radio_toolbar input[type="radio"]').each(function () {
     var label = $("label[for=" + this.id + "]");
-    label.css("transition", transition_time);
+    label.css("transition", color_transition_time);
     if ($(this).is(":checked")) {
       label.css("color", bg_color);
       label.css("background-color", color);
@@ -138,32 +139,32 @@ $(".img_btn").click(function () {
   });
 
   // Set slider color.
-  $(".slider").css("transition", transition_time);
+  $(".slider").css("transition", color_transition_time);
   $(".slider").css("background", color);
   $(".slider").css("border-top", "1px solid " + color);
   $(
     "<style type='text/css'>.slider::-webkit-slider-thumb{transition:" +
-      transition_time +
+      color_transition_time +
       ";background:" +
       color +
       "}</style>"
   ).appendTo($("head"));
 
   // Set textfield color.
-  $(".textfield").css("transition", transition_time);
+  $(".textfield").css("transition", color_transition_time);
   $(".textfield").css("color", color);
   $(
     "<style type='text/css'>.textfield::placeholder{transition:" +
-      transition_time +
+      color_transition_time +
       ";color:" +
       color +
       "}</style>"
   ).appendTo($("head"));
 
   // Set textarea color.
-  $(".textarea").css("transition", transition_time);
+  $(".textarea").css("transition", color_transition_time);
   $(".textarea").css("color", color);
-  $("body").css("transition", transition_time);
+  $("body").css("transition", color_transition_time);
   $("body").css("background", bg_color);
   $("settings_bar").css("background", bg_color);
 
