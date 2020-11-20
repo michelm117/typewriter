@@ -252,7 +252,7 @@ function changeTextEveryInterval() {
 
   if (!is_changing_text_automatically) {
     // change every 1.5 seconds the text.
-    var time = $(".textearea_paragraph").children().length * 3000;
+    var time = $(".textearea_paragraph").children().length * 1500;
     inst = setInterval(setText, time);
     // sets the curser at the end of the line.
     $(".textarea").val($("textarea").val() + " ");
@@ -279,6 +279,13 @@ function fadeSpansIn() {
     });
 }
 
+$(".checkbox_font_weight").click(function () {
+  if (is_changing_text_automatically) {
+    changeTextEveryInterval();
+    changeTextEveryInterval();
+  }
+});
+
 $(".textfield").focus(function () {
   if (is_changing_text_automatically) {
     changeTextEveryInterval();
@@ -292,6 +299,12 @@ $(".changeTextButton").focus(function () {
 });
 
 $(".textarea").focus(function () {
+  if (is_changing_text_automatically) {
+    changeTextEveryInterval();
+  }
+});
+
+$(".radio_toolbar").click(function () {
   if (is_changing_text_automatically) {
     changeTextEveryInterval();
   }

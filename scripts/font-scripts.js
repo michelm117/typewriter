@@ -179,15 +179,27 @@ $('.radio_toolbar input[type="radio"]').click(function () {
   var textarea = $(".textarea > p");
   switch (clicked_id) {
     case "radio_progress":
-      textarea.css("font-family", "Progress");
+      //textarea.css("font-family", "Progress");
+      textarea.fadeOut(300, function () {
+        $(this).css("font-family", "Progress");
+        $(this).fadeIn(300);
+      });
       break;
       c;
     case "radio_material":
-      textarea.css("font-family", "Material");
+      textarea.fadeOut(300, function () {
+        $(this).css("font-family", "Material");
+        $(this).fadeIn(300);
+      });
+      //textarea.css("font-family", "Material");
       break;
 
     case "radio_begato":
-      textarea.css("font-family", "Begato");
+      textarea.fadeOut(300, function () {
+        $(this).css("font-family", "Begato");
+        $(this).fadeIn(300);
+      });
+      //textarea.css("font-family", "Begato");
       break;
 
     default:
@@ -265,5 +277,3 @@ $(document).ready(function () {
     div.focus();
   }, 0);
 });
-
-

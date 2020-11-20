@@ -181,21 +181,30 @@ function getNewText() {
 }
 
 // Set given text into the textarea.
-function setText(pText) {
-  text = pText;
+function setText() {
+  text = getNewText();
 
   if (number_of_spans > 1) {
     text = " " + text;
   }
 
+  $(".textearea_paragraph");
   $(".textearea_paragraph")
     .children()
-    .slideUp(300, function () {
-      // Animation complete.
+    .fadeOut(300, function () {
       $(".textearea_paragraph")
         .children()
         .html(newText.replaceAll("\n", "<br>"));
     });
+  /*
+    .children()
+    .slideOut(300, function () {
+      // Animation complete.
+      $(".textearea_paragraph")
+        .children()
+        .html(newText.replaceAll("\n", "<br>"));
+    });*/
+
   var newText = getNewText();
   $(".textearea_paragraph")
     .children()
@@ -211,6 +220,8 @@ $(".slider").on("input", function () {
   $(".textarea").css("font-size", $(this).val() + "px");
 });
 
+
+// Make Settings_Bar sticky.
 $(window).scroll(function (e) {
   var $el = $(".settings_bar");
   var isPositionFixed = $el.css("position") == "fixed";
