@@ -172,7 +172,7 @@ $(".begato_label").click(function () {
   //$("#checkbox_Regular").prop("checked", true);
 });
 
-// Radio clicked.
+// Font selected.
 $('.radio_toolbar input[type="radio"]').click(function () {
   var clicked_id = this.id;
 
@@ -195,6 +195,67 @@ $('.radio_toolbar input[type="radio"]').click(function () {
   }
 });
 
+var fontFeaturesActivated = {
+  checkbox_sso1: false,
+  checkbox_sso2: false,
+  checkbox_sso3: false,
+  checkbox_sso4: false,
+  checkbox_sso5: false,
+  checkbox_sso6: false,
+  checkbox_sso7: false,
+  checkbox_sso8: false,
+  checkbox_sso9: false,
+  checkbox_ss10: false,
+  checkbox_ss11: false,
+  checkbox_ss12: false,
+  checkbox_ss13: false,
+  checkbox_liga: false,
+  checkbox_tnum: false,
+  checkbox_zero: false,
+};
+
+var fontFeatures = {
+  checkbox_sso1: "ss01",
+  checkbox_sso2: "ss02",
+  checkbox_sso3: "ss03",
+  checkbox_sso4: "ss04",
+  checkbox_sso5: "ss05",
+  checkbox_sso6: "ss06",
+  checkbox_sso7: "ss07",
+  checkbox_sso8: "ss08",
+  checkbox_sso9: "ss09",
+  checkbox_ss10: "ss10",
+  checkbox_ss11: "ss11",
+  checkbox_ss12: "ss12",
+  checkbox_ss13: "ss13",
+  checkbox_liga: "liga",
+  checkbox_tnum: "tnum",
+  checkbox_zero: "zero",
+};
+
+$('.font_features_checkboxes input[type="checkbox"]').click(function () {
+  var clicked_id = this.id;
+  checkBox_is_checked = $("#" + clicked_id).is(":checked");
+  fontFeaturesActivated[clicked_id] = checkBox_is_checked;
+
+  // Collect all activated font-features.
+  var font_feature_settings = "";
+  $.each(fontFeaturesActivated, function (key, value) {
+    if (value) {
+      font_feature_settings += '"' + fontFeatures[key] + '" 1, ';
+    }
+  });
+
+  // remove ', ' from string.
+  if (font_feature_settings.length > 1) {
+    font_feature_settings = font_feature_settings.slice(0, -2);
+  }
+
+  // Append existing style with font-features
+  $(".textearea_paragraph").css("font-feature-settings", font_feature_settings);
+});
+
+// On document ready
 $(document).ready(function () {
   $(".material_label").trigger("click");
 
