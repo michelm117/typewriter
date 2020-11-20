@@ -90,8 +90,6 @@ function appendTextWithFontWeight(id) {
   );
 }
 
-
-
 // Write text to the textarea.
 $(".textfield").on("keyup change", function () {
   text = $(this).val();
@@ -135,8 +133,72 @@ function setNewText() {
     text = " " + text;
   }
 
-  //$(".textarea").siblings().text("OK");
   $(".textarea > p span").html(text.replaceAll("\n", "<br>"));
+}
+
+// Get a random predefined text.
+function getNewText() {
+  var textArray = [
+    "First paragraph text",
+    "Second paragraph text",
+    "Third paragraph with \nline \nbreaks",
+    "Fourth paragraph text",
+    "Fifth paragraph text",
+    "Apollo Amerika Kriwett",
+    "Pantone Two Color Selector",
+    "Josef Müller-Brockmann  Grid Systems",
+    "rollo",
+    "Fluid Concepts and Creative Analogies",
+    "Die Welt in deinen Händen",
+    "PlaybourPark",
+    "Work Hard Play hard",
+    "Speciment",
+    "Rosemarin",
+    "A Stack of Books",
+  ];
+
+  index = Math.floor(Math.random() * textArray.length);
+  text = textArray[index];
+
+  // This checks if the new text is not the same as before.
+  // In other words this avoids setting the same text twice.
+  old_text = $(".textarea").html().replaceAll("<br>", "\n");
+  while (text === old_text) {
+    index = Math.floor(Math.random() * textArray.length);
+    text = textArray[index];
+  }
+
+  if (number_of_spans > 1) {
+    text = " " + text;
+  }
+
+  return text.replaceAll("\n", "<br>");
+}
+
+// Set given text into the textarea.
+function setText(pText) {
+  text = pText;
+
+  if (number_of_spans > 1) {
+    text = " " + text;
+  }
+
+  $(".textearea_paragraph")
+    .children()
+    .slideUp(300, function () {
+      // Animation complete.
+      $(".textearea_paragraph")
+        .children()
+        .html(newText.replaceAll("\n", "<br>"));
+    });
+  var newText = getNewText();
+  $(".textearea_paragraph")
+    .children()
+    .each(function (index) {
+      $(this)
+        .delay(300 * index)
+        .fadeIn(300);
+    });
 }
 
 // Slider function to increase/decrease the font

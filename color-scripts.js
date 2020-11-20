@@ -151,10 +151,10 @@ $(".img_btn").click(function () {
   $(".textfield").css("color", color);
   $(
     "<style type='text/css'>.textfield::placeholder{transition:" +
-    transition_time +
-    ";color:" +
-    color +
-    "}</style>"
+      transition_time +
+      ";color:" +
+      color +
+      "}</style>"
   ).appendTo($("head"));
 
   // Set textarea color.
@@ -183,6 +183,17 @@ $('.checkbox_toolbar input[type="checkbox"]').click(function () {
   }
 });
 
+// Show the upcoming color on mouse hover over color circle.
+$(".checkbox_toolbar label").on("mouseover", function () {
+  $(this).css("border", "1px solid " + color);
+  //$(this).css("border-style", "solid");
+});
+
+// Set the normal circle image when hovered out.
+$(".checkbox_toolbar label").on("mouseout", function () {
+  $(this).css("border", "1px solid " + bg_color);
+});
+
 // Radio clicked.
 $('.radio_toolbar input[type="radio"]').click(function () {
   var clicked_id = this.id;
@@ -201,6 +212,17 @@ $('.radio_toolbar input[type="radio"]').click(function () {
       label.css("background-color", bg_color);
     }
   });
+});
+
+// Show the upcoming color on mouse hover over color circle.
+$(".radio_toolbar label").on("mouseover", function () {
+  $(this).css("border", "1px solid " + color);
+  //$(this).css("border-style", "solid");
+});
+
+// Set the normal circle image when hovered out.
+$(".radio_toolbar label").on("mouseout", function () {
+  $(this).css("border", "1px solid " + bg_color);
 });
 
 // Show the upcoming color on mouse hover over color circle.
@@ -225,9 +247,9 @@ function changeTextEveryInterval() {
   var img_src = stop_src;
 
   if (!is_changing_text_automatically) {
-    setNewText();
     // change every 1.5 seconds the text.
-    inst = setInterval(setNewText, 1500);
+    var time = $(".textearea_paragraph").children().length * 3000;
+    inst = setInterval(setText, time);
     // sets the curser at the end of the line.
     $(".textarea").val($("textarea").val() + " ");
   } else {
@@ -236,6 +258,21 @@ function changeTextEveryInterval() {
   }
   $(".img_btn_next").attr("src", img_src);
   is_changing_text_automatically = !is_changing_text_automatically;
+}
+
+function fadeSpansIn() {
+  $(".textearea_paragraph").children().fadeOut(100);
+
+  setNewText();
+
+  $(".textearea_paragraph")
+    .children()
+    .each(function (index) {
+      console.log($(".textearea_paragraph").children());
+      $(this)
+        .delay(300 * index)
+        .fadeIn(300);
+    });
 }
 
 $(".textfield").focus(function () {
