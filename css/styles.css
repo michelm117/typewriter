@@ -26,10 +26,6 @@ body {
   padding-right: 1%;
 }
 
-img {
-  margin: 0 20px;
-}
-
 .font_bar {
   flex-grow: 1;
   display: flex;
@@ -213,6 +209,10 @@ hr {
 .img_btn {
   width: 15px;
   height: 15px;
+}
+
+img{
+  margin: 0 10px;
 }
 
 /* ----- Slider ----- */
