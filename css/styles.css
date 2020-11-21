@@ -172,6 +172,7 @@ hr {
   text-decoration: none;
   margin: 0 5px;
   padding: 0 5px;
+  box-shadow: none;
 }
 
 .btn:focus {
