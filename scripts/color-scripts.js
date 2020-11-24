@@ -4,7 +4,7 @@
 var color_transition_time = ".5s";
 var font_transition_time = ".3s";
 var time_for_span_animation = 500;
-var time_to_wait_till_new_animation_start = 800;
+var time_to_wait_till_new_animation_start = 1000;
 
 var RED = "#ff0000ff";
 var GREY = "#666d88ff";
@@ -255,7 +255,9 @@ function changeTextEveryInterval() {
   var img_src = stop_src;
 
   if (!is_changing_text_automatically) {
-    var time = $(".textearea_paragraph").children().length * time_for_span_animation + time_to_wait_till_new_animation_start;
+    var time =
+      $(".textearea_paragraph").children().length * time_for_span_animation +
+      time_to_wait_till_new_animation_start;
     inst = setInterval(setText, time);
     // sets the curser at the end of the line.
     $(".textarea").val($("textarea").val() + " ");
