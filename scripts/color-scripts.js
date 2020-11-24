@@ -3,7 +3,8 @@
  */
 var color_transition_time = ".5s";
 var font_transition_time = ".3s";
-var change_text_time = 1000;
+var time_for_span_animation = 500;
+var time_to_wait_till_new_animation_start = 800;
 
 var RED = "#ff0000ff";
 var GREY = "#666d88ff";
@@ -254,30 +255,7 @@ function changeTextEveryInterval() {
   var img_src = stop_src;
 
   if (!is_changing_text_automatically) {
-    if ($(".textearea_paragraph").children().length === 1) {
-      change_text_time = 2000;
-    } else if ($(".textearea_paragraph").children().length === 2) {
-      change_text_time = 2000;
-    } else if ($(".textearea_paragraph").children().length === 2) {
-      change_text_time = 1000;
-    } else if ($(".textearea_paragraph").children().length === 3) {
-      change_text_time = 1000;
-    } else if ($(".textearea_paragraph").children().length === 4) {
-      change_text_time = 1000;
-    } else if ($(".textearea_paragraph").children().length === 5) {
-      change_text_time = 1000;
-    } else if ($(".textearea_paragraph").children().length === 6) {
-      change_text_time = 1000;
-    } else if ($(".textearea_paragraph").children().length === 7) {
-      change_text_time = 1000;
-    } else if ($(".textearea_paragraph").children().length === 8) {
-      change_text_time = 1000;
-    } else if ($(".textearea_paragraph").children().length === 9) {
-      change_text_time = 1000;
-    } else {
-      change_text_time = 1000;
-    }
-    var time = $(".textearea_paragraph").children().length * change_text_time;
+    var time = $(".textearea_paragraph").children().length * time_for_span_animation + time_to_wait_till_new_animation_start;
     inst = setInterval(setText, time);
     // sets the curser at the end of the line.
     $(".textarea").val($("textarea").val() + " ");

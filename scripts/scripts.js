@@ -204,7 +204,7 @@ function setText() {
     });*/
 
   var newText = getNewText();
-  var time_for_fadeIn = change_text_time / 2;
+  var time_for_fadeIn = time_for_span_animation;
   console.log(time_for_fadeIn);
   $(".textearea_paragraph")
     .children()
