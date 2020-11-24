@@ -3,6 +3,7 @@
  */
 var color_transition_time = ".5s";
 var font_transition_time = ".3s";
+var change_text_time = 1000;
 
 var RED = "#ff0000ff";
 var GREY = "#666d88ff";
@@ -14,14 +15,14 @@ var color = BLACK;
 var bg_color = WHITE;
 var next_src = "img/next_black.png";
 var stop_src = "img/stop_white.png";
-var img_button_src = "img/color_circle.png";
+var img_button_src = "img/color_circle.svg";
 var is_changing_text_automatically = false;
 
 var all_hover_img_src = [
-  "img/color_circle_red.png",
-  "img/color_circle_green.png",
-  "img/color_circle_black.png",
-  "img/color_circle_white.png",
+  "img/color_circle_red.svg",
+  "img/color_circle_green.svg",
+  "img/color_circle_black.svg",
+  "img/color_circle_white.svg",
 ];
 
 var Color = {
@@ -253,8 +254,30 @@ function changeTextEveryInterval() {
   var img_src = stop_src;
 
   if (!is_changing_text_automatically) {
-    // change every 1.5 seconds the text.
-    var time = $(".textearea_paragraph").children().length * 1500;
+    if ($(".textearea_paragraph").children().length === 1) {
+      change_text_time = 2000;
+    } else if ($(".textearea_paragraph").children().length === 2) {
+      change_text_time = 2000;
+    } else if ($(".textearea_paragraph").children().length === 2) {
+      change_text_time = 1000;
+    } else if ($(".textearea_paragraph").children().length === 3) {
+      change_text_time = 1000;
+    } else if ($(".textearea_paragraph").children().length === 4) {
+      change_text_time = 1000;
+    } else if ($(".textearea_paragraph").children().length === 5) {
+      change_text_time = 1000;
+    } else if ($(".textearea_paragraph").children().length === 6) {
+      change_text_time = 1000;
+    } else if ($(".textearea_paragraph").children().length === 7) {
+      change_text_time = 1000;
+    } else if ($(".textearea_paragraph").children().length === 8) {
+      change_text_time = 1000;
+    } else if ($(".textearea_paragraph").children().length === 9) {
+      change_text_time = 1000;
+    } else {
+      change_text_time = 1000;
+    }
+    var time = $(".textearea_paragraph").children().length * change_text_time;
     inst = setInterval(setText, time);
     // sets the curser at the end of the line.
     $(".textarea").val($("textarea").val() + " ");
@@ -267,7 +290,7 @@ function changeTextEveryInterval() {
 }
 
 function fadeSpansIn() {
-  $(".textearea_paragraph").children().fadeOut(100);
+  $(".textearea_paragraph").children().fadeOut(1);
 
   setNewText();
 
@@ -276,8 +299,8 @@ function fadeSpansIn() {
     .each(function (index) {
       console.log($(".textearea_paragraph").children());
       $(this)
-        .delay(300 * index)
-        .fadeIn(300);
+        .delay(1 * index)
+        .fadeIn(1);
     });
 }
 

@@ -105,21 +105,20 @@ $(".textfield").click(function () {
 // Set a random predefined text into the textarea.
 function setNewText() {
   var textArray = [
-    "First paragraph text",
-    "Second paragraph text",
-    "Third paragraph with \nline \nbreaks",
-    "Fourth paragraph text",
+     "Gesture-miburi- as Wolrd process Shutaro Mukai",
+    "Apollo Amerika Kriwett",
+    "Grid systems in graphic design\nRaster systeme für die visuelle Gestaltung \nJosef Müller-Brockmann",
+    "Das Buch der Zeichen und Symbole",
     "Fifth paragraph text",
     "Apollo Amerika Kriwett",
     "Pantone Two Color Selector",
-    "Josef Müller-Brockmann  Grid Systems",
-    "rollo",
+    "Zeichen, Marker, Zinken\nSigns, Brands, Marks Kirstin Bühler Oppenheimer",
     "Fluid Concepts and Creative Analogies",
-    "Die Welt in deinen Händen",
-    "PlaybourPark",
-    "Work Hard Play hard",
-    "Speciment",
-    "Rosemarin",
+    "ikebana almanach",
+    "Schaufenster International 2\nWindow Display",
+    "Film + Design Peter von Arx",
+    "Kyrill Constantinides Tank: Janus Neinus Vielleichtus",
+    "Flatland A Romance of Many Edwin A. Abbott",
     "A Stack of Books",
   ];
 
@@ -144,21 +143,20 @@ function setNewText() {
 // Get a random predefined text.
 function getNewText() {
   var textArray = [
-    "First paragraph text",
-    "Second paragraph text",
-    "Third paragraph with \nline \nbreaks",
-    "Fourth paragraph text",
-    "Fifth paragraph text",
+  "Gesture-miburi- as Wolrd process Shutaro Mukai",
+    "Apollo Amerika Kriwett",
+    "Grid systems in graphic design\nRaster systeme für die visuelle Gestaltung \nJosef Müller-Brockmann",
+    "Das Buch der Zeichen und Symbole",
+    "summa cosmographica Kohei Sugiura",
     "Apollo Amerika Kriwett",
     "Pantone Two Color Selector",
-    "Josef Müller-Brockmann  Grid Systems",
-    "rollo",
+    "Zeichen, Marker, Zinken\nSigns, Brands, Marks Kirstin Bühler Oppenheimer",
     "Fluid Concepts and Creative Analogies",
-    "Die Welt in deinen Händen",
-    "PlaybourPark",
-    "Work Hard Play hard",
-    "Speciment",
-    "Rosemarin",
+    "ikebana almanach",
+    "Schaufenster International 2\nWindow Display",
+    "Film + Design Peter von Arx",
+    "Kyrill Constantinides Tank: Janus Neinus Vielleichtus",
+    "Flatland A Romance of Many Edwin A. Abbott",
     "A Stack of Books",
   ];
 
@@ -206,12 +204,14 @@ function setText() {
     });*/
 
   var newText = getNewText();
+  var time_for_fadeIn = change_text_time / 2;
+  console.log(time_for_fadeIn);
   $(".textearea_paragraph")
     .children()
     .each(function (index) {
       $(this)
-        .delay(300 * index)
-        .fadeIn(300);
+        .delay(time_for_fadeIn * index)
+        .fadeIn(time_for_fadeIn);
     });
 }
 
